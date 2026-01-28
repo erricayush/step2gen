@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.main_header {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  place-items: center;
+  background: #e0e5e4;
+}
+
+h1 {
+  color: red;
+  font-size: 4rem;
+}
+
+p {
+  color: red;
+  font-size: 4rem;
+}/*# sourceMappingURL=main.css.map */

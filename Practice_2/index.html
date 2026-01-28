@@ -1,0 +1,87 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>
+            This is my practice 2
+        </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+<div id="container">
+    <form id="practiceForm">
+        <fieldset>
+            <legend>Practice 2: Registration</legend>
+            
+            <table>
+                <tr>
+                    <td><label for="yourName">Name:</label></td>
+                    <td><input type="text" id="yourName" placeholder="Enter your name"></td>
+                </tr>
+
+
+                <tr>
+                    <td><label for="yourPassword">Password:</label></td>
+                    <td><input type="password" id="yourPassword" placeholder="Enter your password"></td>
+                </tr>
+
+
+                <tr>
+                    <td><label for="yourAddress">Address:</label></td>
+                    <td><textarea id="yourAddress"></textarea></td>
+                </tr>
+
+ 
+                <tr>
+                    <td><label>Game:</label></td>
+                    <td>
+                        <div class="option-group">
+                            <span><input type="checkbox" id="cricket"> Chess</span>
+                            <span><input type="checkbox" id="football">Super Mario Bros</span>
+                            <span><input type="checkbox" id="football">Monopoly</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td>
+                        <div class="option-group">
+                            <span><input type="radio" id="male" name="gender"> Male</span>
+                            <span><input type="radio" id="female" name="gender"> Female</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="yourAge">Age:</label></td>
+                    <td>
+                        <select id="yourAge">
+                            <option value="">Select Age</option>
+                            <option value="0-17">0-17</option>
+                            <option value="18-35">18-35</option>
+                            <option value="35+">35+</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="yourPhoto">Photo:</label></td>
+                    <td><input type="file" id="yourPhoto"></td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="2" class="button-row">
+                        <input  type="submit" value="Save" class="btn">
+                        <input type="reset" value="Reset" class="btn btn-reset">
+                        <input type="submit" value="Submit" class="btn">
+                    </td>
+                </tr>
+            </table>
+
+        </fieldset>
+    </form>
+</div>
+        
+    </body>
+</html>
