@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Hamburger Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Hamburger Animation */
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: currentColor;
+            margin: 5px 0;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #mobile-menu.open {
+            max-height: 400px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-blue-600">Brand</span>
+                </div>
+
+                <!-- Desktop Menu: Hidden on small screens (md:flex only) -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition">About</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
+                    <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition shadow-sm">Contact</a>
+                </div>
+
+                <!-- Hamburger Button (Mobile Only) -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="hamburger p-2 focus:outline-none text-gray-700 hover:text-blue-600 transition" aria-label="Toggle Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Items: Hidden by default, toggled via JavaScript -->
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">Home</a>
+                <a href="#" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">About</a>
+                <a href="#" class="block px-4 py-3 rounded-xl text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">Services</a>
+                <hr class="my-2 border-gray-100">
+                <a href="#" class="block px-4 py-3 rounded-xl text-base font-bold text-white bg-blue-600 text-center shadow-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto mt-16 p-6 text-center">
+        <div class="inline-block p-3 bg-blue-100 rounded-full mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+        </div>
+        <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">Responsive Navigation</h1>
+        <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+            The menu is now tucked away inside the button on mobile devices. Click the hamburger icon to reveal the links.
+        </p>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Toggle menu logic
+        const toggleMenu = () => {
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+        };
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                toggleMenu();
+            }
+        });
+
+        // Close menu on resize if switching to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                menuBtn.classList.remove('active');
+                mobileMenu.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

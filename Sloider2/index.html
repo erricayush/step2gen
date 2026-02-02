@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Swiper Outside Navigation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-black flex items-center justify-center">
+
+  <!-- Main Wrapper -->
+  <div class="relative w-[90%] md:w-[80%] lg:w-[70%] h-[60vh] flex items-center gap-4">
+
+    <!-- Left Button -->
+    <button
+      class="swiper-button-prev-custom text-white bg-gray-800 hover:bg-gray-700 p-3 rounded-full"
+    >
+      &#8592;
+    </button>
+
+    <!-- Swiper -->
+    <swiper-container
+      class="w-full h-full"
+      slides-per-view="3"
+      space-between="10"
+      keyboard="true"
+      mousewheel="true"
+      pagination="true"
+      navigation="false"
+    >
+
+      <!-- Slide -->
+      <swiper-slide class="relative rounded-xl overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute bottom-0 w-full bg-black/60 text-center py-2 text-sm">
+          Beautiful Nature
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="relative rounded-xl overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute bottom-0 w-full bg-black/60 text-center py-2 text-sm">
+          Mountain View
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="relative rounded-xl overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute bottom-0 w-full bg-black/60 text-center py-2 text-sm">
+          City Life
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="relative rounded-xl overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute bottom-0 w-full bg-black/60 text-center py-2 text-sm">
+          Sunny Beach
+        </div>
+      </swiper-slide>
+
+    </swiper-container>
+
+    <!-- Right Button -->
+    <button
+      class="swiper-button-next-custom text-white bg-gray-800 hover:bg-gray-700 p-3 rounded-full"
+    >
+      &#8594;
+    </button>
+
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-element-bundle.min.js"></script>
+
+  <!-- Navigation Script -->
+  <script>
+    const swiper = document.querySelector('swiper-container');
+
+    document
+      .querySelector('.swiper-button-next-custom')
+      .addEventListener('click', () => swiper.swiper.slideNext());
+
+    document
+      .querySelector('.swiper-button-prev-custom')
+      .addEventListener('click', () => swiper.swiper.slidePrev());
+  </script>
+
+</body>
+</html>
