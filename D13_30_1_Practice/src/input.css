@@ -1,0 +1,37 @@
+@import "tailwindcss";
+ 
+
+/* for slider one */
+@theme {
+  /* Use 'linear' so the speed is constant, otherwise it will look jumpy */
+  --animate-infinite-scroll: infinite-scroll 10s linear infinite;
+
+  @keyframes infinite-scroll {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+
+/* slider 2 */
+
+@layer utilities {
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* Custom utility classes */
+  .animate-scroll-left {
+    animation: scroll-left 20s linear infinite;
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 20s linear infinite;
+  }
+}

@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.btn{
+    @apply text-white w-23 h-7 border items-center hover:bg-cyan-400 ease-in duration-300 cursor-pointer hover:border-none  uppercase font-semibold text-xs;
+}
+
+.btn1{
+    @apply absolute text-white w-17 h-6 border items-center bg-cyan-400  cursor-pointer border-transparent  hover:bg-transparent hover:border-white top-10 left-10 flex items-center justify-center uppercase font-semibold text-xs;
+}
+
+.btn2{
+   @apply absolute text-white w-15 h-6 border items-center bg-cyan-400  cursor-pointer border-transparent  hover:bg-transparent hover:border-white top-10 left-30 flex items-center justify-center uppercase font-semibold text-xs;
+}
